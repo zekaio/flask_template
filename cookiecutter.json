@@ -1,10 +1,5 @@
 {
-  "full_name": "lingzekai",
-  "email": "zekailing@gmail.com",
-  "site_url": "https://zekaio.cn",
-  "site_name": "zekaio",
   "project_name": "project",
   "app_name": "app",
-  "project_short_description": "A flasky app.",
-  "version": "0.1.0"
+  "project_short_description": "A flasky app."
 }
