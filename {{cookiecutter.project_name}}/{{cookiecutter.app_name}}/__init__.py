@@ -5,10 +5,11 @@ import click
 from flask import Flask, jsonify
 
 from {{cookiecutter.app_name}}.config import app_config
+from {{cookiecutter.app_name}}.controllers import *
 from {{cookiecutter.app_name}}.extend.helper import HttpError
 from {{cookiecutter.app_name}}.extensions import db, migrate, cors
 from {{cookiecutter.app_name}}.middlewares import before_request
-
+from {{cookiecutter.app_name}}.models.database import *
 
 def create_app(config_name: str = None) -> Flask:
     """
@@ -37,11 +38,11 @@ def register_errorhandler(app: Flask):
 
 
 def register_blueprints(app: Flask):
-    pass
+    app.register_blueprint(user_bp)
 
 
 def register_extensions(app: Flask):
-    cors.init_app(app, supports_credentials=True)
+    cors.init_app(app)
     db.init_app(app)
     migrate.init_app(app, db)
 
@@ -57,6 +58,7 @@ def register_commands(app: Flask):
         初始化数据库
         """
         db.create_all()
+        db.session.commit()
         click.echo('Initialized database.')
 
     @app.cli.command()
@@ -68,6 +70,7 @@ def register_commands(app: Flask):
         db.drop_all()
         click.echo('Drop tables.')
         db.create_all()
+        db.session.commit()
         click.echo('Initialized database.')
 
     @app.cli.command()

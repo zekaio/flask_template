@@ -29,6 +29,8 @@ class AppConfig:
 class AppConfigDev(AppConfig):
     SQLALCHEMY_DATABASE_URI = baseurl + '/{}?charset=utf8mb4'.format(dbname['development'])
     DEBUG = True
+    SQLALCHEMY_ECHO = True
+
 
 
 class AppConfigProd(AppConfig):
@@ -39,6 +41,7 @@ class AppConfigProd(AppConfig):
 class AppConfigTest(AppConfig):
     SQLALCHEMY_DATABASE_URI = baseurl + '/{}?charset=utf8mb4'.format(dbname['testing'])
     TESTING = True
+    SQLALCHEMY_ECHO = True
 
 
 app_config = {

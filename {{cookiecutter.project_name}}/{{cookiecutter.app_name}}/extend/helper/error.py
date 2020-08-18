@@ -6,4 +6,7 @@ class HttpError(Exception):
         self.status_code = status_code
 
     def to_dict(self):
-        return {'message': self.message}
+        return {
+            'errcode': self.status_code,
+            'errmsg': self.message
+        }
