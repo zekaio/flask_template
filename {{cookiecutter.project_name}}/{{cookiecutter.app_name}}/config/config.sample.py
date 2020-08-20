@@ -16,7 +16,9 @@ dbname = {
     'testing': ''
 }
 
-baseurl = 'mysql+mysqlconnector://{username}:{password}@{host}:{port}'.format(**DatabaseConfig)
+
+def get_database_url(env: str) -> str:
+    return 'mysql+mysqlconnector://{username}:{password}@{host}:{port}/'.format(**DatabaseConfig) + '{}?charset=utf8mb4'.format(dbname[env])
 
 
 class AppConfig:
@@ -27,19 +29,18 @@ class AppConfig:
 
 
 class AppConfigDev(AppConfig):
-    SQLALCHEMY_DATABASE_URI = baseurl + '/{}?charset=utf8mb4'.format(dbname['development'])
+    SQLALCHEMY_DATABASE_URI = get_database_url('development')
     DEBUG = True
     SQLALCHEMY_ECHO = True
 
 
-
 class AppConfigProd(AppConfig):
-    SQLALCHEMY_DATABASE_URI = baseurl + '/{}?charset=utf8mb4'.format(dbname['production'])
+    SQLALCHEMY_DATABASE_URI = get_database_url('production')
     SQLALCHEMY_RECORD_QUERIES = False
 
 
 class AppConfigTest(AppConfig):
-    SQLALCHEMY_DATABASE_URI = baseurl + '/{}?charset=utf8mb4'.format(dbname['testing'])
+    SQLALCHEMY_DATABASE_URI = get_database_url('testing')
     TESTING = True
     SQLALCHEMY_ECHO = True
 
