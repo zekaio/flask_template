@@ -6,6 +6,6 @@ flask项目模板
 
 ```bash
 pip install cookiecutter
-cookiecutter root@git.zekaio.cn:zekaio/flask_template.git
+cookiecutter https://git.zekaio.cn/zekaio/flask_template.git
 ```
 
