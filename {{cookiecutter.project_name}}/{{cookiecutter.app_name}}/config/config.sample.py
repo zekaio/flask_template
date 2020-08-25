@@ -18,7 +18,7 @@ dbname = {
 
 
 def get_database_url(env: str) -> str:
-    return 'mysql+mysqlconnector://{username}:{password}@{host}:{port}/'.format(**DatabaseConfig) + '{}?charset=utf8mb4'.format(dbname[env])
+    return 'mysql+mysqlconnector://{username}:{password}@{host}:{port}/{database}?charset=utf8mb4'.format(**DatabaseConfig, database=dbname[env])
 
 
 class AppConfig:
