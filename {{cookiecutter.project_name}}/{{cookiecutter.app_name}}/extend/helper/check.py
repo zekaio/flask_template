@@ -54,10 +54,12 @@ class BaseModel(object):
         :param data: dict 和定义的参数模型对应的数据
         :return: BaseModel 返回定义的参数模型
         """
+        class RetCls(cls):
+            pass
+        
         if data is None:
             data: dict = get_json()
         attributes: typing.List[typing.Tuple[str, Parameter]] = cls._get_attributes()
-        ret_cls = cls
         for key, parameter in attributes:
             # 获取参数的值
             value = data.get(key)
@@ -95,6 +97,6 @@ class BaseModel(object):
                 if ret is not True:
                     raise HttpError(ret[1], 400)
 
-            setattr(ret_cls, key, value)
+            setattr(RetCls, key, value)
 
-        return ret_cls
+        return RetCls
