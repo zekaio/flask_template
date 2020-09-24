@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 class HttpError(Exception):
     def __init__(self, message, status_code):
         super().__init__()

@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 """
 检测参数是否正确
 """
 import inspect
 import typing
 
-from . import get_json, HttpError
+from .error import HttpError
 
 
 class Parameter(object):

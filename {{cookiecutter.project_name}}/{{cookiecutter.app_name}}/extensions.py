@@ -4,10 +4,9 @@
 """
 from flask_cors import CORS
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy, Model
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, DateTime, func
 from sqlalchemy.orm import Query, Session
-
 
 cors = CORS(supports_credentials=True)
 migrate = Migrate()
@@ -20,7 +19,7 @@ class _SQLAlchemy(SQLAlchemy):
 db = _SQLAlchemy()
 
 
-class _Model(db.Model):
+class Model(db.Model):
     __abstract__ = True
 
     query: Query
@@ -31,6 +30,3 @@ class _Model(db.Model):
 
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
-
-
-db.Model = _Model

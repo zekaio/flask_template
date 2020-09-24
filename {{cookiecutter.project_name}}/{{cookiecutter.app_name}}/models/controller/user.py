@@ -1,4 +1,5 @@
-from {{cookiecutter.app_name}}.extend.helper import BaseModel, Parameter, check_username, check_password
+from {{cookiecutter.app_name}}.extends.helper import check_username, check_password
+from {{cookiecutter.app_name}}.extends.check import BaseModel, Parameter
 
 
 class UserModel(BaseModel):

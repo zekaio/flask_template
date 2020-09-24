@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-from {{cookiecutter.app_name}}.extensions import db
+from {{cookiecutter.app_name}}.extensions import db, Model
 
-class User(db.Model):
+class User(Model):
     __tablename__ = 'user'
     
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

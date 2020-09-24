@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-from {{cookiecutter.app_name}}.extend.helper import HttpError
+from {{cookiecutter.app_name}}.extends.error import HttpError
 from {{cookiecutter.app_name}}.extensions import db
 from {{cookiecutter.app_name}}.models.database import *
 
