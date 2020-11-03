@@ -37,7 +37,7 @@ def register_errorhandler(app: Flask):
 
 
 def register_blueprints(app: Flask):
-    app.register_blueprint(user_bp)
+    pass
 
 
 def register_extensions(app: Flask):

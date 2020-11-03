@@ -6,3 +6,4 @@ venv/
 env/
 {{cookiecutter.app_name}}/config/config.py
 *.log
+migrations/

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import multiprocessing
 
 workers =  1 + multiprocessing.cpu_count() * 2
