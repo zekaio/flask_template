@@ -39,7 +39,6 @@ def register_errorhandler(app: Flask):
 def register_blueprints(app: Flask):
     pass
 
-
 def register_extensions(app: Flask):
     cors.init_app(app)
     db.init_app(app)
