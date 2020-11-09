@@ -4,7 +4,6 @@
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, DateTime, func
 from sqlalchemy.orm import Query, Session
 
 cors = CORS(supports_credentials=True)

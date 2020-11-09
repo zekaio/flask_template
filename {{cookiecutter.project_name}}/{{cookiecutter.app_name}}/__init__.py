@@ -8,7 +8,7 @@ from {{cookiecutter.app_name}}.controllers import *
 from {{cookiecutter.app_name}}.extends.error import HttpError
 from {{cookiecutter.app_name}}.extensions import db, migrate, cors
 from {{cookiecutter.app_name}}.middlewares import before_request
-from {{cookiecutter.app_name}}.models.database import *
+from {{cookiecutter.app_name}}.models import *
 
 def create_app(config_name: str = None) -> Flask:
     """
